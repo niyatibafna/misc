@@ -20,7 +20,7 @@
 # echo "Activating conda environment: $environment_name"
 # conda activate $environment_name
 
-## Then run this script i.e. ``nohup bash setup_conda_env.sh``
+## Then run this script i.e. ``nohup bash setup_torch_hf_env.sh``
 
 set -euxo pipefail
 
@@ -43,6 +43,8 @@ echo "INSTALLING pip PACKAGES..."
 pip install -U evaluate
 pip install -U accelerate 
 pip install -U datasets
+pip install -U sentencepiece
+# pip install -U peft
 
 pip install -U scikit-learn matplotlib seaborn pandas
 
