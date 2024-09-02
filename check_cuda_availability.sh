@@ -17,7 +17,7 @@ source ~/.bashrc
 conda deactivate
 
 # Put the name of the environment to be tested here
-conda activate basic
+conda activate sandbox
 source /home/gqin2/scripts/acquire-gpu 1
 
 which python
