@@ -16,7 +16,7 @@
 # OR
 
 # Before running this script, create and activate conda environment
-# conda create -y -n $environment_name
+# conda create -y -n $environment_name python=3.12
 # echo "Activating conda environment: $environment_name"
 # conda activate $environment_name
 
@@ -28,9 +28,9 @@ set -euxo pipefail
 echo "Installing PyTorch and other dependencies"
 
 ### !!! Choose which PyTorch version to install based on your CUDA version !!!
-conda install -y pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=10.2 -c pytorch
+# conda install -y pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=10.2 -c pytorch
 # conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-# conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install -y pytorch=2.4 torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 
 # Install transformers and tensorboard
 echo "INSTALLING transformers AND tensorboard..."
@@ -40,17 +40,19 @@ conda install -y tensorboard
 # pip packages
 echo "INSTALLING pip PACKAGES..."
 
+pip install -U sacrebleu
 pip install -U evaluate
 pip install -U accelerate 
 pip install -U datasets
 pip install -U sentencepiece
-# pip install -U peft
+pip install -U peft
+
 
 pip install -U scikit-learn matplotlib seaborn pandas
 
 ## If speech environment, install the following
-pip install -U librosa
-pip install -U soundfile
+# pip install -U librosa
+# pip install -U soundfile
 
 
 echo "Environment setup complete."
