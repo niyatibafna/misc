@@ -46,6 +46,6 @@ for idx in range(len(alignments)):
         sw, tw = source_words[a[0]], target_words[a[1]]
         dictionary[sw][tw] += 1
 
-
+print(f"Writing dictionary to {sys.argv[3]}")
 with open(sys.argv[3], "w") as f:
     json.dump(dictionary, f, indent = 2, ensure_ascii = False)
