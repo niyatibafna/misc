@@ -24,18 +24,27 @@
 
 set -euxo pipefail
 
+# Python version that works
+conda install -y python==3.10.16
+
 # Install PyTorch and other dependencies
 echo "Installing PyTorch and other dependencies"
+
+# Upgrade Python
+# conda install -y python=3.10.16
 
 ### !!! Choose which PyTorch version to install based on your CUDA version !!!
 # conda install -y pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=10.2 -c pytorch
 # conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-conda install -y pytorch=2.4 torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+# conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+# pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121
+pip install torch==2.2.0+cu121 torchvision==0.17.0+cu121 torchaudio==2.2.0+cu121 --index-url https://download.pytorch.org/whl/cu121
+
 
 # Install transformers and tensorboard
 echo "INSTALLING transformers AND tensorboard..."
 conda install -y -c huggingface transformers
-conda install -y tensorboard
+pip install -U tensorboard
 
 # pip packages
 echo "INSTALLING pip PACKAGES..."
@@ -46,7 +55,8 @@ pip install -U accelerate
 pip install -U datasets
 pip install -U sentencepiece
 pip install -U peft
-
+# pip install -U bitsandbytes
+pip install -U wandb
 
 pip install -U scikit-learn matplotlib seaborn pandas
 
