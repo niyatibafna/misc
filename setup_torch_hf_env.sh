@@ -25,7 +25,7 @@
 set -euxo pipefail
 
 # Python version that works
-conda install -y python==3.10.16
+# conda install -y python==3.10.16
 
 # Install PyTorch and other dependencies
 echo "Installing PyTorch and other dependencies"
@@ -60,7 +60,7 @@ pip install -U accelerate
 pip install -U datasets
 pip install -U sentencepiece
 pip install -U peft
-# pip install -U bitsandbytes
+pip install -U bitsandbytes
 pip install -U wandb
 
 pip install -U scikit-learn matplotlib seaborn pandas
